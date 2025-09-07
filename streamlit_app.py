@@ -53,8 +53,9 @@ def clasificar_imagen(imagen_path):
     )
     img_array_resized = np.asarray(img_resized)
     normalized_image_array = (img_array_resized.astype(np.float32) / 127.5) - 1
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-    data[0] = normalized_image_array
+    #data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    #data[0] = normalized_image_array
+    input_array = np.expand_dims(normalized_image_array, axis=0)
     pred = model.predict(data)[0]
     return pred
 
@@ -100,4 +101,5 @@ if uploaded_file is not None:
     #pip freeze > requirements.txt
     
     #streamlit run streamlit_app.py  
+
 
