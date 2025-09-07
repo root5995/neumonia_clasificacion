@@ -35,7 +35,7 @@ DepthwiseConv2D.from_config = patched_from_config
 model = tf.keras.models.load_model("keras_model.h5", compile=False)
 
 # Labels (ajusta si usas más clases)
-class_labels = ["gato", "perro"]
+class_labels = ["Neumonia", "No neumonia"]
 
 # Crear directorio temporal
 temp_dir = "temp"
@@ -56,7 +56,7 @@ def clasificar_imagen(imagen_path):
     #data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     #data[0] = normalized_image_array
     input_array = np.expand_dims(normalized_image_array, axis=0)
-    pred = model.predict(data)[0]
+    pred = model.predict(input_array)[0]
     return pred
 
 # ==============================
@@ -101,5 +101,6 @@ if uploaded_file is not None:
     #pip freeze > requirements.txt
     
     #streamlit run streamlit_app.py  
+
 
 
