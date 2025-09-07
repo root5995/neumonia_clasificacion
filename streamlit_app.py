@@ -32,7 +32,7 @@ DepthwiseConv2D.from_config = patched_from_config
 # CARGAR MODELO
 # ==============================
 #model = load_model("keras_modelset.h5", compile=False)import tensorflow as tf
-model = tf.keras.models.load_model("keras_modelset.h5", compile=False)
+model = tf.keras.models.load_model("keras_model.h5", compile=False)
 
 # Labels (ajusta si usas más clases)
 class_labels = ["gato", "perro"]
@@ -100,3 +100,4 @@ if uploaded_file is not None:
     #pip freeze > requirements.txt
     
     #streamlit run streamlit_app.py  
+
