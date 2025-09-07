@@ -45,7 +45,9 @@ os.makedirs(temp_dir, exist_ok=True)
 # FUNCIÓN DE CLASIFICACIÓN
 # ==============================
 def clasificar_imagen(imagen_path):
-    img_array = io.imread(imagen_path) / 255.0
+    # Use Pillow to load and convert the image to RGB
+    image = Image.open(imagen_path).convert('RGB')
+    img_array = io.imread(image) / 255.0
     img_resized = ImageOps.fit(
         Image.fromarray((img_array * 255).astype(np.uint8)),
         (224, 224),
@@ -101,6 +103,7 @@ if uploaded_file is not None:
     #pip freeze > requirements.txt
     
     #streamlit run streamlit_app.py  
+
 
 
 
